@@ -1,25 +1,15 @@
-.card-widget {
-    padding: 10px!important;
-    max-height: calc(100vh - 100px);
+#calendar-area-right {
+    width: 55%;
+    padding: 4px 0 4px 8px; /* 调整左右间距 */
 }
 
 .card-times a, .card-times div {
     color: var(--efu-fontcolor);
 }
 
-#card-widget-calendar .item-content {
-    display: flex;
-}
-
-#calendar-area-left {
-    width: 45%;
-}
-
-#calendar-area-right {
-    width: 55%;
-}
-
+/* 日历区域布局 */
 #calendar-area-left, #calendar-area-right {
+    box-sizing: border-box; /* 新增 */
     height: 100%;
     padding: 4px;
     display: flex;
@@ -27,6 +17,25 @@
     align-items: center;
     justify-content: center;
 }
+
+#calendar-area-left {
+    width: 45%;
+    flex-shrink: 0; /* 禁止收缩 */
+}
+
+#calendar-area-right {
+    width: 55%;
+    padding: 4px 0 4px 8px;
+}
+
+/* 父容器修正（可选） */
+#card-widget-calendar .item-content {
+    display: flex;
+    gap: 8px;
+    min-height: 150px;
+    width: 100%; /* 确保父容器占满宽度 */
+}
+这是html文件，请看一下里面的日历和schedule的问题
 
 #calendar-main {
     width: 100%;
@@ -170,12 +179,15 @@ progress::-webkit-progress-value {
 }
 
 .aside-span2 {
-    right: 20px;
-    color: var(--efu-secondtext);
+    right: 10px; /* 减少右边距 */
+    max-width: 80px; /* 限制最大宽度 */
+    white-space: nowrap; /* 禁止换行 */
 }
 
 .aside-span2 a {
-    margin: 0 3px;
+    display: inline-block;
+    padding: 0 2px;
+    margin: 0;
 }
 
 #pBar_month, #pBar_week, #pBar_year {
